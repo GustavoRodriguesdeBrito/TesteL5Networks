@@ -1,8 +1,8 @@
 import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-import { Produto } from '../interfaces/produto';
-import { ApiService } from '../services/api.service';
+import { Produto } from '../../interfaces/produto';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-pagina-produtos',
