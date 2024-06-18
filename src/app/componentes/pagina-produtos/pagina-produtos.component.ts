@@ -13,24 +13,20 @@ import { ApiService } from '../../services/api.service';
 })
 export class PaginaProdutosComponent implements OnInit {
   listaProdutos: Produto[] = [];
-  pagina: number = 1;
+  pagina: number = 0;
 
   constructor(private api: ApiService) {}
   ngOnInit(): void {
-    this.api.getProdutos('', this.pagina).subscribe((produtos: Produto[]) => {
-      console.log('length of results:', produtos.length);
-      console.log('total:', this.listaProdutos.length);
+    this.api.getProdutos(this.pagina, '').subscribe((produtos: Produto[]) => {
       this.listaProdutos = produtos;
-      console.log('total after:', this.listaProdutos.length);
+      this.pagina += 1;
     });
   }
 
   onScroll() {
-    this.api.getProdutos('', this.pagina).subscribe((produtos: Produto[]) => {
-      console.log('length of results:', produtos.length);
-      console.log('total before:', this.listaProdutos.length);
+    this.api.getProdutos(this.pagina, '').subscribe((produtos: Produto[]) => {
       this.listaProdutos.push(...produtos);
-      console.log('total after:', this.listaProdutos.length);
+      this.pagina += 1;
     });
   }
 }

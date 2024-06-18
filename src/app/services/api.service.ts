@@ -16,19 +16,18 @@ export class ApiService {
    * Retorna um Observable com array de produtos.
    * Pode ter um termo de busca por 'title' do produto.
    */
-  public getProdutos(termo?: string, pagina?: number): Observable<Produto[]> {
+  public getProdutos(pagina: number, termo?: string): Observable<Produto[]> {
     let url: string = `${this.baseUrl}/products`;
-
+    let limite = 9;
     let params: HttpParams = new HttpParams();
 
     if (termo) {
       params = params.set('title', termo);
     }
-    if (pagina) {
-      params = params.set('offset', pagina);
-    }
+
     //para buscar 9 itens por vez
-    params = params.set('limit', 9);
+    params = params.set('offset', pagina * limite);
+    params = params.set('limit', limite);
 
     return this.httpClient.get<Produto[]>(url, { params }).pipe(
       map((produtos) => {
