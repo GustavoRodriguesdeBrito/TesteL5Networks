@@ -1,10 +1,24 @@
 # AppTeste
 
+Este projeto é um teste aplicado pela L5 Networks, com o objetivo de desenvolver uma aplicação front-end em estilo dashboard que se comunica com uma API REST, utilizando
+`Angular 17+` e `Bootstrap`.
+
+Foram utilizadas também as bibliotecas:
+
+- `bootstrap-icons` para ícones;
+- `ngx-infinite-scroll` para implementar scroll infinito de listagens;
+
+## Executando o projeto com Development server
+
+Acesse o diretório onde o projeto foi salvo, rode os comandos `npm install` e `ng serve` e navegue até `http://localhost:4200/`. A aplicação vai recarregar automaticamente se um dos arquivos-fonte forem alterados.
+
+![captura de tela da página de produtos](./src/assets/Screenshot-Produtos.png)
+
+#### _Abaixo segue o trecho original de README gerado pela CLI do Angular._
+
+---
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.3.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
