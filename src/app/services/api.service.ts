@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Categoria } from '../interfaces/categoria';
 import { Produto } from '../interfaces/produto';
 
 @Injectable({
@@ -29,24 +29,15 @@ export class ApiService {
     params = params.set('offset', pagina * limite);
     params = params.set('limit', limite);
 
-    return this.httpClient.get<Produto[]>(url, { params }).pipe(
-      map((produtos) => {
-        return produtos.map((produto) => {
-          return {
-            id: produto.id,
-            title: produto.title,
-            price: produto.price,
-            description: produto.description,
-            category: produto.category,
-            images: produto.images,
-          };
-        });
-      })
-    );
+    return this.httpClient.get<Produto[]>(url, { params });
   }
 
   /**
    * retorna um array de categorias
    */
-  public getCategorias() {}
+  public getCategorias(): Observable<Categoria[]> {
+    let url = `${this.baseUrl}/categories`;
+
+    return this.httpClient.get<Categoria[]>(url);
+  }
 }
