@@ -14,6 +14,15 @@ export class BuscaComponent {
 
   constructor(private buscaSvc: BuscaService) {}
 
+  ngOnInit(): void {
+    /* receba o termo de busca para ser exibido
+     * na caixa de pesquisa após a mudança de página
+     */
+    this.buscaSvc.termoAtual.subscribe((termo) => {
+      this.termoBusca = termo;
+    });
+  }
+
   buscar() {
     this.buscaSvc.novaPesquisa(this.termoBusca);
   }
