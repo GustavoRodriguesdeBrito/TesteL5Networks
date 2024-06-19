@@ -24,7 +24,6 @@ export class PaginaDetalhesComponent {
     let id = Number(this.route.snapshot.paramMap.get('id'));
     this.api.getProduto(id).subscribe((produto) => {
       this.produto = produto;
-      console.log(produto);
     });
   }
 
