@@ -33,6 +33,15 @@ export class ApiService {
   }
 
   /**
+   * Retorna um único produto com base no ID
+   */
+  public getProduto(id: number): Observable<Produto> {
+    let url = `${this.baseUrl}/products/${id}`;
+
+    return this.httpClient.get<Produto>(url);
+  }
+
+  /**
    * retorna um array de categorias
    */
   public getCategorias(): Observable<Categoria[]> {

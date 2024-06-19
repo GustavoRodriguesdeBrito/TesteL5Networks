@@ -1,0 +1,20 @@
+<div class="container-fluid min-vh-100">
+  <div class="row">
+    <button class="btn btn-secondary m-2 w-auto" (click)="voltar()">
+      Voltar
+    </button>
+  </div>
+  <div class="row p-4">
+    <div class="col-md-6">
+      <h1>{{ produto.title }}</h1>
+      <hr />
+      <h2>Categoria: {{ produto.category.name }}</h2>
+      <h2>Preço: ${{ produto.price }}</h2>
+      <h3>Descrição:</h3>
+      <p>{{ produto.description }}</p>
+    </div>
+    <div class="col-md-6 border">
+      <img src="{{ produto.images[0] }}" alt="imagem do produto" />
+    </div>
+  </div>
+</div>

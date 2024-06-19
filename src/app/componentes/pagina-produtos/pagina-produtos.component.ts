@@ -1,5 +1,6 @@
 import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { Produto } from '../../interfaces/produto';
 import { ApiService } from '../../services/api.service';
@@ -9,7 +10,7 @@ import { BuscaComponent } from '../busca/busca.component';
 @Component({
   selector: 'app-pagina-produtos',
   standalone: true,
-  imports: [NgFor, InfiniteScrollModule, BuscaComponent],
+  imports: [NgFor, InfiniteScrollModule, BuscaComponent, RouterLink],
   templateUrl: './pagina-produtos.component.html',
   styleUrl: './pagina-produtos.component.css',
 })
